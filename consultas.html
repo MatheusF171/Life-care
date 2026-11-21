@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeCare | Consultas e Registros</title>
+  <link rel="icon" href="img/icone.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/consultas.css">
+</head>
+<body>
+  <header class="topo">
+    <a href="index.html" class="logo">
+      <img src="img/logo.png" alt="LifeCare">
+    </a>
+    <p class="slogan">Cuidado contínuo, história completa.</p>
+    <button id="botaoTema" class="botao-tema">🌙 Plantão noturno</button>
+  </header>
+
+  <nav class="menu">
+    <a href="index.html">Painel</a>
+    <a href="pacientes.html">Pacientes</a>
+    <a href="consultas.html" class="ativo">Consultas e Registros</a>
+  </nav>
+
+  <main class="conteudo">
+    <section class="cabecalho-pagina">
+      <h1>Consultas e registros hospitalares</h1>
+      <p>Consulte o histórico completo do paciente, registre atendimentos e mantenha o plano de tratamento atualizado.</p>
+    </section>
+
+    <section class="painel seletor">
+      <label for="selecaoPaciente">Paciente</label>
+      <select id="selecaoPaciente">
+        <option value="">Selecione um paciente...</option>
+      </select>
+    </section>
+
+    <p id="avisoInicial" class="vazio">Escolha um paciente para abrir o prontuário.</p>
+
+    <div id="prontuario" class="prontuario-grade escondido">
+      <div class="coluna">
+        <section class="painel ficha">
+          <div id="alertaAlergia" class="alerta-critico escondido"></div>
+          <h2 id="fichaNome"></h2>
+          <div class="ficha-dados">
+            <p><strong>Idade:</strong> <span id="fichaIdade"></span></p>
+            <p><strong>Sexo:</strong> <span id="fichaSexo"></span></p>
+            <p><strong>CPF:</strong> <span id="fichaCpf"></span></p>
+            <p><strong>Tipo sanguíneo:</strong> <span id="fichaSangue"></span></p>
+            <p><strong>Convênio:</strong> <span id="fichaConvenio"></span></p>
+            <p><strong>Telefone:</strong> <span id="fichaTelefone"></span></p>
+            <p><strong>Cadastro:</strong> <span id="fichaCadastro"></span></p>
+          </div>
+          <h3>Histórico médico</h3>
+          <p id="fichaHistorico" class="texto-clinico"></p>
+        </section>
+
+        <section class="painel">
+          <h2>Plano de tratamento</h2>
+          <textarea id="plano" rows="4" placeholder="Descreva o plano de tratamento atual..."></textarea>
+          <button id="botaoPlano" class="botao">Atualizar plano</button>
+        </section>
+      </div>
+
+      <div class="coluna">
+        <section class="painel">
+          <h2 id="tituloRegistro">Novo registro</h2>
+          <form id="formRegistro" class="formulario">
+            <div class="campo">
+              <label for="tipo">Tipo</label>
+              <select id="tipo">
+                <option>Consulta</option>
+                <option>Exame</option>
+                <option>Tratamento</option>
+                <option>Observação</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="data">Data *</label>
+              <input type="date" id="data" required>
+            </div>
+            <div class="campo">
+              <label for="profissional">Profissional *</label>
+              <input type="text" id="profissional" placeholder="Ex.: Dra. Renata Moraes" required>
+            </div>
+            <div class="campo">
+              <label for="situacao">Situação</label>
+              <select id="situacao">
+                <option>Concluído</option>
+                <option>Em andamento</option>
+              </select>
+            </div>
+            <div class="campo campo-inteiro">
+              <label for="descricao">Descrição ou resultado *</label>
+              <textarea id="descricao" rows="3" placeholder="Queixa, conduta, resultado do exame..." required></textarea>
+            </div>
+            <div class="acoes-formulario">
+              <button type="submit" id="botaoRegistro" class="botao">Adicionar ao prontuário</button>
+              <button type="button" id="botaoCancelarRegistro" class="botao botao-secundario escondido">Cancelar edição</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="painel">
+          <div class="barra-busca">
+            <h2>Histórico de atendimentos</h2>
+            <select id="filtroTipo">
+              <option value="todos">Todos os tipos</option>
+              <option>Consulta</option>
+              <option>Exame</option>
+              <option>Tratamento</option>
+              <option>Observação</option>
+            </select>
+          </div>
+          <ul id="linhaDoTempo" class="linha-do-tempo"></ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    LifeCare © 2026 · Dados fictícios para fins acadêmicos · Informações de saúde protegidas pela LGPD
+  </footer>
+
+  <div id="mensagem" class="mensagem"></div>
+
+  <script src="js/comum.js"></script>
+  <script src="js/consultas.js"></script>
+</body>
+</html>
