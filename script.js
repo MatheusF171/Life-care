@@ -594,7 +594,7 @@ function mostrarFicha() {
 
   const alerta = document.getElementById("alertaAlergia");
   if (p.alergias !== "") {
-    alerta.textContent = "⚠ ALERGIA: " + p.alergias;
+    alerta.textContent = "ALERGIA: " + p.alergias;
     alerta.classList.remove("escondido");
   } else {
     alerta.classList.add("escondido");

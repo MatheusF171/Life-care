@@ -30,8 +30,8 @@ Extras: alerta vermelho de alergia, busca por nome/CPF, filtros, modo **Plantão
 
 ## Divisão do código em 3 partes
 
-Todo o JavaScript está em **um só arquivo** (`js/script.js`) e todo o CSS em **um só arquivo**
-(`css/estilo.css`). Dentro deles, comentários marcam a área de cada trecho:
+Todo o JavaScript está em **um só arquivo** (`script.js`) e todo o CSS em **um só arquivo**
+(`estilo.css`), os dois na raiz do projeto, ao lado das páginas. Dentro deles, comentários marcam a área de cada trecho:
 `// PARTE 1 — ...` no JavaScript e `/* PARTE 1 — ... */` no CSS (o CSS não aceita `//`).
 
 | Parte | Responsável por | Onde está |
@@ -45,14 +45,19 @@ Life-care/
 ├── index.html          (Parte 1)
 ├── pacientes.html      (Parte 2)
 ├── consultas.html      (Parte 3)
-├── css/
-│   └── estilo.css      (Parte 1, Parte 2 e Parte 3, nessa ordem)
-├── js/
-│   └── script.js       (Parte 1, Parte 2 e Parte 3, nessa ordem)
-└── img/
-    ├── logo.png
-    └── icone.png
+├── estilo.css          (Parte 1, Parte 2 e Parte 3, nessa ordem)
+├── script.js           (Parte 1, Parte 2 e Parte 3, nessa ordem)
+└── assets/             (imagens)
+    ├── logo.png        logo com fundo branco arredondado (Parte 1)
+    ├── icone.png       ícone da aba do navegador (Parte 1)
+    ├── concluido.png   ícone de registro concluído no histórico (Parte 3)
+    ├── andamento.png   ícone de registro em andamento no histórico (Parte 3)
+    └── alerta.gif      ícone animado do alerta de alergia (Parte 3)
 ```
+
+As imagens da pasta `assets` substituem desenhos que antes eram feitos só com CSS
+(bolinhas da linha do tempo, animação do alerta e o fundo branco da logo no modo noturno),
+deixando o `estilo.css` menor.
 
 As três páginas carregam o mesmo `script.js`. No fim de cada parte, um `if` verifica se o
 elemento principal daquela área existe na página aberta (por exemplo, `formPaciente`); assim

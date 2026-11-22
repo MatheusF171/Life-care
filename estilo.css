@@ -68,19 +68,9 @@ h2 {
   border-bottom: 4px solid var(--verde);
 }
 
-.logo {
-  display: block;
-  border-radius: 10px;
-  padding: 4px 8px;
-}
-
 .logo img {
-  height: 44px;
+  height: 52px;
   display: block;
-}
-
-body.noturno .logo {
-  background-color: #FFFFFF;
 }
 
 .slogan {
@@ -495,7 +485,7 @@ body.noturno .situacao.andamento {
   }
 
   .logo img {
-    height: 34px;
+    height: 40px;
   }
 
   .menu a {
@@ -608,20 +598,13 @@ body.noturno .situacao.andamento {
 
 /* Parte 3 — Alerta crítico de alergia */
 .alerta-critico {
-  background-color: var(--vermelho);
+  background: var(--vermelho) url("assets/alerta.gif") no-repeat 14px center / 30px;
   color: #FFFFFF;
   font-size: 1.1rem;
   font-weight: 700;
-  padding: 14px 18px;
+  padding: 14px 18px 14px 54px;
   border-radius: 8px;
   margin-bottom: 16px;
-  animation: pulsar 1.5s ease-in-out 3;
-}
-
-@keyframes pulsar {
-  50% {
-    box-shadow: 0 0 0 8px rgba(230, 57, 70, 0.3);
-  }
 }
 
 /* Parte 3 — Ficha do paciente, plano e formulário de registro */
@@ -649,36 +632,20 @@ body.noturno .situacao.andamento {
   grid-template-columns: 1fr 1fr;
 }
 
-/* Parte 3 — Linha do tempo (histórico de atendimentos) */
+/* Parte 3 — Histórico de atendimentos (ícones da pasta assets) */
 .linha-do-tempo {
   list-style: none;
-  border-left: 3px solid var(--borda);
-  padding-left: 20px;
-  margin-left: 8px;
 }
 
 .registro {
-  position: relative;
-  background-color: var(--fundo);
+  background: var(--fundo) url("assets/concluido.png") no-repeat 14px 14px / 22px;
   border-radius: 10px;
-  padding: 14px 16px;
+  padding: 14px 16px 14px 48px;
   margin-bottom: 14px;
 }
 
-.registro::before {
-  content: "";
-  position: absolute;
-  left: -30px;
-  top: 18px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: var(--azul);
-  border: 3px solid var(--cartao);
-}
-
-.registro.andamento::before {
-  background-color: var(--verde);
+.registro.andamento {
+  background-image: url("assets/andamento.png");
 }
 
 .registro-topo {
@@ -702,10 +669,6 @@ body.noturno .situacao.andamento {
   gap: 8px;
   margin-top: 10px;
   font-size: 0.9rem;
-}
-
-.linha-do-tempo .vazio {
-  list-style: none;
 }
 
 /* Parte 3 — Responsivo (tablet e celular) */
