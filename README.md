@@ -30,43 +30,32 @@ Extras: alerta vermelho de alergia, busca por nome/CPF, filtros, modo **Plantão
 
 ## Divisão do código em 3 partes
 
-Todo o JavaScript está em **um só arquivo** (`script.js`) e todo o CSS em **um só arquivo**
-(`estilo.css`), os dois na raiz do projeto, ao lado das páginas. Dentro deles, comentários marcam a área de cada trecho:
-`// PARTE 1 — ...` no JavaScript e `/* PARTE 1 — ... */` no CSS (o CSS não aceita `//`).
-
-| Parte | Responsável por | Onde está |
-|-------|-----------------|-----------|
-| **1 — Interface e Dashboard** | Visual geral, menu, cores, tema noturno, funções comuns e painel | `index.html` + seções **PARTE 1** do `estilo.css` e do `script.js` |
-| **2 — Cadastro de Pacientes** | Formulário, tabela, busca, editar, arquivar e excluir pacientes | `pacientes.html` + seções **PARTE 2** do `estilo.css` e do `script.js` |
-| **3 — Consultas e Registros Hospitalares** | Prontuário, alerta de alergia, plano de tratamento e histórico de atendimentos | `consultas.html` + seções **PARTE 3** do `estilo.css` e do `script.js` |
+| Parte | Responsável por | Arquivos |
+|-------|-----------------|----------|
+| **1 — Interface e Dashboard** | Visual geral, menu, cores, tema noturno, funções comuns e painel | `index.html`, `css/estilo.css`, `js/comum.js`, `js/dashboard.js` |
+| **2 — Cadastro de Pacientes** | Formulário, tabela, busca, editar, arquivar e excluir pacientes | `pacientes.html`, `css/pacientes.css`, `js/pacientes.js` |
+| **3 — Consultas e Registros Hospitalares** | Prontuário, alerta de alergia, plano de tratamento e histórico de atendimentos | `consultas.html`, `css/consultas.css`, `js/consultas.js` |
 
 ```
 Life-care/
 ├── index.html          (Parte 1)
 ├── pacientes.html      (Parte 2)
 ├── consultas.html      (Parte 3)
-├── estilo.css          (Parte 1, Parte 2 e Parte 3, nessa ordem)
-├── script.js           (Parte 1, Parte 2 e Parte 3, nessa ordem)
-└── assets/             (imagens)
-    ├── logo.png        logo com fundo branco arredondado (Parte 1)
-    ├── icone.png       ícone da aba do navegador (Parte 1)
-    ├── concluido.png   ícone de registro concluído no histórico (Parte 3)
-    ├── andamento.png   ícone de registro em andamento no histórico (Parte 3)
-    └── alerta.gif      ícone animado do alerta de alergia (Parte 3)
+├── css/
+│   ├── estilo.css      (Parte 1 — usado por todas as páginas)
+│   ├── pacientes.css   (Parte 2)
+│   └── consultas.css   (Parte 3)
+├── js/
+│   ├── comum.js        (Parte 1 — usado por todas as páginas)
+│   ├── dashboard.js    (Parte 1)
+│   ├── pacientes.js    (Parte 2)
+│   └── consultas.js    (Parte 3)
+└── img/
+    ├── logo.png
+    └── icone.png
 ```
 
-As imagens da pasta `assets` substituem desenhos que antes eram feitos só com CSS
-(bolinhas da linha do tempo, animação do alerta e o fundo branco da logo no modo noturno),
-deixando o `estilo.css` menor.
-
-As três páginas carregam o mesmo `script.js`. No fim de cada parte, um `if` verifica se o
-elemento principal daquela área existe na página aberta (por exemplo, `formPaciente`); assim
-cada área só roda na sua própria página.
-
-> **Atenção:** a metodologia avaliativa pede que **todos os comentários sejam removidos** antes
-> da apresentação e arguição. No VS Code: `Ctrl+H`, ative a expressão regular (`Alt+R`) e substitua
-> por nada `^\s*//.*\n` no `script.js` e `/\*[\s\S]*?\*/\n?` no `estilo.css`.
-
+O código **não tem comentários**, como pede a metodologia avaliativa para a apresentação.
 As explicações de cada parte estão no guia em PDF que acompanha o projeto.
 
 ---
