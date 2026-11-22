@@ -1,3 +1,9 @@
+/* ==================================================================
+   PARTE 1 — INTERFACE E DASHBOARD
+   Base visual usada pelas 3 páginas e o Painel (index.html)
+   ================================================================== */
+
+/* Parte 1 — Base: reset, cores (variáveis) e fontes */
 * {
   margin: 0;
   padding: 0;
@@ -52,6 +58,7 @@ h2 {
   margin-bottom: 16px;
 }
 
+/* Parte 1 — Cabeçalho, logo, botão de tema e menu */
 .topo {
   display: flex;
   align-items: center;
@@ -121,6 +128,7 @@ body.noturno .logo {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
+/* Parte 1 — Estrutura das páginas e Painel (cartões, painéis e listas) */
 .conteudo {
   width: 100%;
   max-width: 1200px;
@@ -232,6 +240,7 @@ body.noturno .logo {
   flex-wrap: wrap;
 }
 
+/* Parte 1 — Botões, formulários, busca e etiquetas (usados pelas 3 páginas) */
 .botao {
   display: inline-block;
   background-color: var(--azul);
@@ -399,6 +408,7 @@ body.noturno .situacao.andamento {
   color: var(--verde);
 }
 
+/* Parte 1 — Utilitários, rodapé e caixinha de mensagem */
 .vazio {
   font-style: italic;
   opacity: 0.75;
@@ -446,6 +456,7 @@ body.noturno .situacao.andamento {
   border-left: 6px solid var(--vermelho);
 }
 
+/* Parte 1 — Responsivo (tablet e celular) */
 @media (max-width: 900px) {
   .cartoes {
     grid-template-columns: repeat(2, 1fr);
@@ -499,5 +510,226 @@ body.noturno .situacao.andamento {
   .barra-busca input,
   .barra-busca select {
     max-width: none;
+  }
+}
+
+
+/* ==================================================================
+   PARTE 2 — CADASTRO DE PACIENTES
+   Estilos da página pacientes.html
+   ================================================================== */
+
+/* Parte 2 — Tabela de pacientes e alerta de alergia */
+.tabela-container {
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.tabela th {
+  background-color: var(--menu);
+  color: #FFFFFF;
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 12px;
+}
+
+.tabela th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.tabela th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.tabela td {
+  padding: 12px;
+  border-bottom: 1px solid var(--borda);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.tabela tbody tr:hover {
+  background-color: rgba(0, 119, 182, 0.05);
+}
+
+.tabela tr.arquivado {
+  opacity: 0.65;
+}
+
+.alerta-alergia {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background-color: rgba(230, 57, 70, 0.12);
+  color: var(--vermelho);
+  font-weight: 700;
+}
+
+#semResultados {
+  margin-top: 16px;
+}
+
+
+/* ==================================================================
+   PARTE 3 — CONSULTAS E REGISTROS HOSPITALARES
+   Estilos da página consultas.html
+   ================================================================== */
+
+/* Parte 3 — Seleção do paciente e layout do prontuário */
+.seletor {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.seletor label {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--titulo);
+}
+
+.seletor select {
+  max-width: 480px;
+}
+
+.prontuario-grade {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Parte 3 — Alerta crítico de alergia */
+.alerta-critico {
+  background-color: var(--vermelho);
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  animation: pulsar 1.5s ease-in-out 3;
+}
+
+@keyframes pulsar {
+  50% {
+    box-shadow: 0 0 0 8px rgba(230, 57, 70, 0.3);
+  }
+}
+
+/* Parte 3 — Ficha do paciente, plano e formulário de registro */
+.ficha-dados {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+  margin-bottom: 16px;
+}
+
+.ficha h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.texto-clinico {
+  white-space: pre-line;
+}
+
+#plano {
+  margin-bottom: 12px;
+}
+
+#formRegistro {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Parte 3 — Linha do tempo (histórico de atendimentos) */
+.linha-do-tempo {
+  list-style: none;
+  border-left: 3px solid var(--borda);
+  padding-left: 20px;
+  margin-left: 8px;
+}
+
+.registro {
+  position: relative;
+  background-color: var(--fundo);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.registro::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 18px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--azul);
+  border: 3px solid var(--cartao);
+}
+
+.registro.andamento::before {
+  background-color: var(--verde);
+}
+
+.registro-topo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.registro-data {
+  margin-left: auto;
+  font-weight: 500;
+}
+
+.registro-rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.linha-do-tempo .vazio {
+  list-style: none;
+}
+
+/* Parte 3 — Responsivo (tablet e celular) */
+@media (max-width: 900px) {
+  .prontuario-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .seletor {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .seletor select {
+    max-width: none;
+  }
+
+  #formRegistro {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .ficha-dados {
+    grid-template-columns: 1fr;
   }
 }
