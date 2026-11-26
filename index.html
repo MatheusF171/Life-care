@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeCare | Painel</title>
+  <link rel="icon" href="assets/icone.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="LifeCare">
+    </a>
+    <p class="slogan">Cuidado contínuo, história completa.</p>
+    <button id="botaoTema" class="botao-tema">🌙 Plantão noturno</button>
+  </header>
+
+  <nav class="menu">
+    <a href="index.html" class="ativo">Painel</a>
+    <a href="pacientes.html">Pacientes</a>
+    <a href="consultas.html">Consultas e Registros</a>
+  </nav>
+
+  <main class="conteudo">
+    <section class="cabecalho-pagina">
+      <h1>Painel geral</h1>
+      <p id="dataHoje"></p>
+    </section>
+
+    <section class="cartoes">
+      <div class="cartao">
+        <span class="cartao-numero" id="totalAtivos">0</span>
+        <span class="cartao-titulo">Pacientes ativos</span>
+      </div>
+      <div class="cartao">
+        <span class="cartao-numero" id="totalRegistros">0</span>
+        <span class="cartao-titulo">Registros no prontuário</span>
+      </div>
+      <div class="cartao cartao-verde">
+        <span class="cartao-numero" id="totalTratamentos">0</span>
+        <span class="cartao-titulo">Tratamentos em andamento</span>
+      </div>
+      <div class="cartao cartao-alerta">
+        <span class="cartao-numero" id="totalAlergias">0</span>
+        <span class="cartao-titulo">Alertas de alergia</span>
+      </div>
+    </section>
+
+    <section class="paineis">
+      <div class="painel">
+        <h2>⚠ Alertas críticos</h2>
+        <ul id="listaAlertas" class="lista"></ul>
+      </div>
+      <div class="painel">
+        <h2>Últimos registros</h2>
+        <ul id="listaUltimos" class="lista"></ul>
+      </div>
+    </section>
+
+    <section class="atalhos">
+      <a href="pacientes.html" class="botao">+ Novo paciente</a>
+      <a href="consultas.html" class="botao botao-secundario">Abrir prontuário</a>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    LifeCare © 2026 · Dados fictícios para fins acadêmicos · Informações de saúde protegidas pela LGPD
+  </footer>
+
+  <div id="mensagem" class="mensagem"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
